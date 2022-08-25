@@ -44,4 +44,20 @@ public class Class {
 
     private String time;
 
+    @Override
+    public String toString() {
+        return "Class{" +
+                "id='" + id + '\'' +
+                ", className='" + className + '\'' +
+                ", classNum=" + classNum +
+                ", division='" + division + '\'' +
+                ", distribution=" + distribution +
+                ", credit=" + credit +
+                ", professor='" + professor + '\'' +
+                ", maxStudent=" + maxStudent +
+                ", curStudent=" + curStudent +
+                ", lectureRoom='" + lectureRoom + '\'' +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }

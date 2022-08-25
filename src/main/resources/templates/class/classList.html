@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +22,17 @@
             <tbody>
             <tr th:each="class : ${classes}">
                 <td th:text="${class.id}"></td>
+                <td th:text="${class.className}"></td>
+                <td th:text="${class.classNum}"></td>
+                <td th:text="${class.division}"></td>
+                <td th:text="${class.distribution}"></td>
+                <td th:text="${class.credit}"></td>
+                <td th:text="${class.professor}"></td>
+                <td th:text="${class.maxStudent}"></td>
+                <td th:text="${class.curStudent}"></td>
+                <td th:text="${class.lectureRoom}"></td>
+                <td th:text="${class.time}"></td>
+
             </tr>
             </tbody>
         </table>

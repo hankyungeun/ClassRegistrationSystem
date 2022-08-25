@@ -17,7 +17,8 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class ClassController {
-    private ClassService classService;
+    private final ClassService classService;
+
 
     @GetMapping("/class")
     public String showClass(Model model){
