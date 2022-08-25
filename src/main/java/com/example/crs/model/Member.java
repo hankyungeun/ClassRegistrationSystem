@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
 @Data
@@ -34,10 +36,6 @@ public class Member {
     //최소신청학점
     private int minCredits;
 
-
-
-
-
-
-
+    @OneToMany(mappedBy = "_class")
+    Set<Register> registerSet;
 }

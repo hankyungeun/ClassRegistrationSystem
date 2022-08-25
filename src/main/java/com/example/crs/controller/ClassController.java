@@ -21,12 +21,11 @@ public class ClassController {
 
 
     @GetMapping("/class")
-    public String showClass(Model model){
+    public String showClass(Model model) {
         List<Class> classes = classService.findClass();
         model.addAttribute("classes", classes);
         return "class/classList";
     }
-
 
 
 }
