@@ -1,2 +1,4 @@
-package com.example.crs.controller;public class loginController {
+package com.example.crs.controller;
+
+public class loginController {
 }

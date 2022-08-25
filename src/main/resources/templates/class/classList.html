@@ -6,5 +6,27 @@
 </head>
 <body>
 
+<div class="container">
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>교과목명</th>
+                <th>학수번호</th>
+                <th>분반</th>
+                <th>이수구분</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="class : ${classes}">
+                <td th:text="${class.id}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> <!-- /container -->
+
 </body>
 </html>
