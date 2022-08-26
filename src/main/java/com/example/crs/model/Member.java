@@ -1,6 +1,7 @@
 package com.example.crs.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Data
+@ToString(exclude = "registerEntitySet")
 public class Member {
     @Id
     @Column(nullable = false)
@@ -36,6 +38,6 @@ public class Member {
     //최소신청학점
     private int minCredits;
 
-    @OneToMany(mappedBy = "_class")
-    Set<Register> registerSet;
+    @OneToMany(mappedBy = "classEntity")
+    Set<RegisterEntity> registerEntitySet;
 }

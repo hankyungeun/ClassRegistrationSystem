@@ -4,12 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Embeddable
 @NoArgsConstructor
-public class RegisterPK implements Serializable {
+public class RegisterEntityPK implements Serializable {
     @Column(name = "member_id")
     private String memberId;
 

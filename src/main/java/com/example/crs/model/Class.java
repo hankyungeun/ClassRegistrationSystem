@@ -1,8 +1,6 @@
 package com.example.crs.model;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -11,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "class")
 @Data
-@ToString(exclude = "registerSet")
+@ToString(exclude = "registerEntitySet")
 public class Class {
     @Id
     //학수번호
@@ -24,15 +22,12 @@ public class Class {
     //이수구분(전공 등)
     private String division;
 
-    @Column
     //분반
     private short distribution;
 
-    @Column
     //학점
     private short credit;
 
-    @Column
     //담당교수
     private String professor;
 
@@ -51,8 +46,8 @@ public class Class {
     //강의시간
     private String time;
 
-    @OneToMany(mappedBy = "member")
-    Set<Register> registerSet;
+    @OneToMany(mappedBy = "memberEntity")
+    Set<RegisterEntity> registerEntitySet;
 
 //    @Override
 //    public String toString() {

@@ -1,6 +1,7 @@
 package com.example.crs;
 
-import com.example.crs.model.Register;
+import com.example.crs.dto.Register;
+import com.example.crs.model.RegisterEntity;
 import com.example.crs.service.RegisterService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @Transactional
-public class RegisterServiceTest {
+public class RegisterEntityServiceTest {
     @Autowired
     RegisterService registerService;
 

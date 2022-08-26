@@ -1,27 +1,27 @@
-//package com.example.crs.service;
-//
-//import com.example.crs.model.Register;
-//import org.springframework.stereotype.Component;
-//
-//@Component
-//public class RegisterMapper {
-//    public Register fromClassEntity(ClassEntity classEntity) {
-//        ClassDTO classDTO = new ClassDTO(classEntity.getClassName(), classEntity.getClassNum(), classEntity.getDivision(), classEntity.getDistribution(), classEntity.getCredit(), classEntity.getProfessor(), classEntity.getMaxStudent(), classEntity.getCurStudent(), classEntity.getLectureRoom(), classEntity.getTime());
-//        classDTO.setId(classDTO.getId());
-//        return classDTO;
-//    }
-//
-//    public ClassEntity fromClass(ClassDTO _class) {
-//        ClassEntity classEntity = new ClassEntity(_class.getClassName(), _class.getClassNum(), _class.getDivision(), _class.getDistribution(), _class.getCredit(), _class.getProfessor(), _class.getMaxStudent(), _class.getCurStudent(), _class.getLectureRoom(), _class.getTime());
-//        classEntity.setId(_class.getId());
-//        return classEntity;
-//    }
-//
-//    public List<ClassDTO> fromClassEntityList(List<ClassEntity> classEntityList) {
-//        List<ClassDTO> list = new ArrayList<>();
-//        for (ClassEntity memberEntity : classEntityList) {
-//            list.add(fromClassEntity(memberEntity));
-//        }
-//        return list;
-//    }
-//}
+package com.example.crs.service;
+
+import com.example.crs.dto.Register;
+import com.example.crs.model.RegisterEntity;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class RegisterMapper {
+    public Register fromRegisterEntity(RegisterEntity registerEntity) {
+        return new Register(registerEntity.getRegisterEntityPK(), registerEntity.getMemberEntity(), registerEntity.getClassEntity());
+    }
+
+    public RegisterEntity fromRegister(Register register) {
+        return new RegisterEntity(register.getRegisterEntityPK(), register.getMemberEntity(), register.getClassEntity());
+    }
+
+    public List<Register> fromRegisterEntityList(List<RegisterEntity> registerEntityList) {
+        List<Register> registerList = new ArrayList<>();
+        for (RegisterEntity registerEntity : registerEntityList) {
+            registerList.add(fromRegisterEntity(registerEntity));
+        }
+        return registerList;
+    }
+}
