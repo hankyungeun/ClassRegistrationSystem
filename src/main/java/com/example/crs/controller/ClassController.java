@@ -19,7 +19,6 @@ import java.util.List;
 public class ClassController {
     private final ClassService classService;
 
-
     @GetMapping("/class")
     public String showClass(Model model) {
         List<Class> classes = classService.findClass();

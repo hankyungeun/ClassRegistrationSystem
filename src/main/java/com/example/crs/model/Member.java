@@ -1,6 +1,7 @@
 package com.example.crs.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Entity
 @Data
 @ToString(exclude = "registerEntitySet")
+@NoArgsConstructor
 public class Member {
     @Id
     @Column(nullable = false)
@@ -40,4 +42,8 @@ public class Member {
 
     @OneToMany(mappedBy = "classEntity")
     Set<RegisterEntity> registerEntitySet;
+
+    public Member(String id) {
+        this.id = id;
+    }
 }

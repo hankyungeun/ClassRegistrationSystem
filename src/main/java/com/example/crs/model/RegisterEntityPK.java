@@ -13,4 +13,9 @@ public class RegisterEntityPK implements Serializable {
 
     @Column(name = "class_id")
     private String classId;
+
+    public RegisterEntityPK(String memberId, String classId) {
+        this.memberId = memberId;
+        this.classId = classId;
+    }
 }

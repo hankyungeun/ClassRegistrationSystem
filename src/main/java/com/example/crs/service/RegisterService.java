@@ -2,10 +2,13 @@ package com.example.crs.service;
 
 import com.example.crs.dao.RegisterRepo;
 import com.example.crs.dto.Register;
+import com.example.crs.model.Member;
 import com.example.crs.model.RegisterEntity;
+import com.example.crs.model.RegisterEntityPK;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.List;
 
@@ -21,8 +24,13 @@ public class RegisterService {
         return registerMapper.fromRegisterEntity(registerRepo.save(registerEntity));
     }
 
+    @Transactional
+    public void delRegister(RegisterEntityPK registerEntityPK) {
+        registerRepo.deleteById(registerEntityPK);
+    }
+
     @Transactional(readOnly = true)
-    public List<Register> getRegisters() {  // 수정 필요!!!(로그인한 아이디의 수강신청 목록이 보이도록)
-        return registerMapper.fromRegisterEntityList(registerRepo.findAll());
+    public List<Register> getRegisters(Member member) {
+        return registerMapper.fromRegisterEntityList(registerRepo.findByMemberId(member.getId()));
     }
 }
