@@ -1,5 +1,6 @@
 package com.example.crs.controller;
 
+import com.example.crs.SessionConstants;
 import com.example.crs.model.Member;
 import com.example.crs.service.LoginService;
 import lombok.RequiredArgsConstructor;
@@ -40,6 +41,11 @@ public class LoginController {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
             return "login/login";
         }
+
+        // 로그인 성공 처리
+        HttpSession session = request.getSession();
+        session.setAttribute(SessionConstants.LOGIN_MEMBER, loginMember);
+
         return "redirect:/class";
     }
 }
