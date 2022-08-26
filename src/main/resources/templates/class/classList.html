@@ -7,9 +7,19 @@
 
 <body>
 <div class="container">
-    <div th:if="${loginMember != null}">
-        <span>로그인 이름: </span>
-        <span th:text="${loginMember.id}"></span>
+    <div th:if="${session.loginMember != null}">
+        <span>학번 : </span>
+        <span th:text="${session.loginMember.id}"></span>
+        <span>이름: </span>
+        <span th:text="${session.loginMember.name}"></span>
+        <span>학과: </span>
+        <span th:text="${session.loginMember.department}"></span>
+        <span>학년: </span>
+        <span th:text="${session.loginMember.grade}"></span>
+        <span>최소수강신청학점: </span>
+        <span th:text="${session.loginMember.maxCredits}"></span>
+        <span>최대수강신청학점: </span>
+        <span th:text="${session.loginMember.minCredits}"></span>
     </div>
 
     <div>

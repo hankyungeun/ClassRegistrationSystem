@@ -1,38 +1,38 @@
-databaseChangeLog:
-  - changeSet:
-      id: "2"
-      author: ky
-      changes:
-        - createTable:
-            tableName: member
-            columns:
-              - column:
-                  name: id
-                  type: VARCHAR(30)
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: passwd
-                  type: VARCHAR(30)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: grade
-                  type: smallint
-                  constraints:
-                    nullable: false
-              - column:
-                  name: department
-                  type: VARCHAR(30)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: max_credits
-                  type: int
-                  constraints:
-                    nullable: false
-              - column:
-                  name: min_credits
-                  type: int
-                  constraints:
-                    nullable: false
+#databaseChangeLog:
+#  - changeSet:
+#      id: "2"
+#      author: ky
+#      changes:
+#        - createTable:
+#            tableName: member
+#            columns:
+#              - column:
+#                  name: id
+#                  type: VARCHAR(30)
+#                  constraints:
+#                    primaryKey: true
+#              - column:
+#                  name: passwd
+#                  type: VARCHAR(30)
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: grade
+#                  type: smallint
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: department
+#                  type: VARCHAR(30)
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: max_credits
+#                  type: int
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: min_credits
+#                  type: int
+#                  constraints:
+#                    nullable: false

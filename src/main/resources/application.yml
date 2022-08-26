@@ -12,8 +12,8 @@ spring:
       hibernate:
         format_sql: true
 
-  liquibase:
-    change-log: classpath:db/db.changelog-master.yaml
+#  liquibase:
+#    change-log: classpath:db/db.changelog-master.yaml
 
 logging:
   level:

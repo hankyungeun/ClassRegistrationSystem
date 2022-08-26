@@ -21,6 +21,10 @@ public class Member {
     private String id;
 
     @Column(nullable = false)
+    //이름
+    private String name;
+
+    @Column(nullable = false)
     //비밀번호
     private String passwd;
 
