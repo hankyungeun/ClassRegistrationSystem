@@ -22,7 +22,7 @@ public class SessionController {
         }
         model.addAttribute("loginMember", loginMember);
 
-        System.out.println(loginMember);
+//        System.out.println(loginMember);
         return "redirect:/class";
     }
 }
