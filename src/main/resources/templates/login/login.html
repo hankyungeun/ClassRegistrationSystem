@@ -63,6 +63,25 @@
     .v-btn__content {
         color: white;
     }
+
+    .error-message {
+        border-width: thin;
+        border-style: solid;
+        border-color: #ff5252;
+        border-radius: 10px;
+        width: 380px;
+        height: 88.38px;
+        background-color: rgba(245, 151, 148, 0.10);
+        font-size: 14px;
+        display: flex;
+        text-align: left;
+        align-items: center;
+        margin-top:20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        color: #ff5252
+    }
+
 </style>
 <head>
     <meta charset="UTF-8">
@@ -72,9 +91,7 @@
 
 <div class="container login__wrapper">
     <form role="form" action="/login" th:action th:object="${loginForm}" method="post">
-        <div th:if="${#fields.hasGlobalErrors()}">
-            <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
-        </div>
+
         <div class="login-logo col col-12">
             <img src="/resources/static/img/logo-accent-color.jpg" ; width:290px; height=50px;>
         </div>
@@ -91,6 +108,12 @@
                 <input type="password" th:field="*{passwd}" class="form-control" id="passwd"
                        th:errorclass="field-error">
                 <div class="field-error" th:errors="*{passwd}"/>
+            </div>
+            <div th:if="${#fields.hasGlobalErrors()}">
+                <span class="field-error error-message" th:each="err : ${#fields.globalErrors()}" th:text="${err}">
+           아이디나 비밀번호가 일치하지 않습니다.<br>
+            입력 사항을 다시 확인해주세요.
+                </span>
             </div>
             <div style="padding-top: 10px">
                 <button id="submit-button" type="submit" class="col btn-rounded btn-dark-blue">
