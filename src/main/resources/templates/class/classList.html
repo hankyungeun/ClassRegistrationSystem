@@ -26,68 +26,56 @@
             background-color: rgba(122, 221, 235, 0.15);
         }
 
-        .subject-name{
+        /*장바구니 담긴 과목 텍스트 스타일 지정*/
+        .type-1 {
             font-weight: bold;
             font-size: 25px;
             text-decoration-line: underline;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
         }
 
-        .subject-number{
+        .type-2 {
             font-size: 16px;
             font-weight: lighter;
-            text-align: left;
-            text-decoration-line: underline;
-        }
-
-        .class-division{
-            font-size: 18px;
-            font-weight: lighter;
-            text-align: left;
-        }
-
-        .class-number{
-            font-size: 18px;
-            font-weight: lighter;
-            text-align: left;
-        }
-
-        .subject-score{
-            font-size: 18px;
-            font-weight: lighter;
-            text-align: left;
-        }
-
-        .class-professor{
-            font-size: 20px;
-            font-weight: lighter;
-            text-align: left;
             font-style: italic;
+            text-align: right;
+            color: #ffffff;
+            text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
         }
 
-        .student-number{
+        .type-3 {
             font-size: 18px;
             font-weight: lighter;
             text-align: left;
+            color: #ffffff;
+            text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
         }
 
-        .limit-student{
+        .type-4 {
+            font-size: 20px;
+            text-align: left;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+        }
+
+        .type-5 {
             font-size: 18px;
             font-weight: lighter;
             text-align: left;
+            color: #ffffff;
+            text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
         }
 
-        .class-name{
-            font-size: 18px;
+        .type-6 {
+            font-size: 15px;
             font-weight: lighter;
             text-align: left;
+            color: #ffffff;
+            text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
         }
-
-        .lecture-time{
-            font-size: 18px;
-            font-weight: lighter;
-            text-align: left;
-        }
-
 
     </style>
 
@@ -167,26 +155,36 @@
         </nav>
         <div class="container">
             <div class="col-sm-3">
-                <div class="card bg-primary mb-3 text-white"><a href="#" class="btn ">
+                <div class="card bg-primary mb-3 text-white"><a href="#" class="btn">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${class.id}">#</h5>
                         <div class="card-text" width="50px;">
-                            <span th:text="${class.className}" class="subject-name"/>교과목 명</span><br/>
-                            <span th:text="${class.className}" class="subject-number"/>학수 번호</span><br/>
-                            <span th:text="${class.className}" class="class-division"/>이수 구분</span><br/>
-                            <span th:text="${class.className}" class="class-number"/>분반</span><br/>
-                            <span th:text="${class.className}" class="subject-score"/>학점</span><br/>
-                            <span th:text="${class.className}" class="class-professor"/>담당 교수</span><br/>
-                            <span th:text="${class.className}" class="student-number"/>수강 인원</span><br/>
-                            <span th:text="${class.className}" class="limit-student"/>제한 인원</span><br/>
-                            <span th:text="${class.className}" class="class-name"/>강의실 명</span><br/>
-                            <span th:text="${class.className}"  class="lecture-time"/>강의 시간</span><br/>
+                            <div class="type-1">
+                                <span th:text="${class.className}"/>교과목 명</span><br/>
+                            </div>
+                            <div class="type-2">
+                                <span th:text="${class.className}"/>학수 번호</span><br/>
+                            </div>
+                            <div class="type-3">
+                                <span th:text="${class.className}"/>이수 구분</span><br/>
+                                <span th:text="${class.className}"/>분반</span><br/>
+                                <span th:text="${class.className}"/>학점</span><br/>
+                            </div>
+                            <div class="type-4">
+                                <span th:text="${class.className}"/>담당 교수</span><br/>
+                            </div>
+                            <div class="type-5">
+                                <span th:text="${class.className}"/>수강 인원</span><br/>
+                                <span th:text="${class.className}"/>제한 인원</span><br/>
+                            </div>
+                            <div class="type-6">
+                                <span th:text="${class.className}"/>강의실 명</span><br/>
+                                <span th:text="${class.className}"/>강의 시간</span><br/>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </div></a>
                 </div>
             </div>
-        </div>
     </section>
 </main>
 
