@@ -18,6 +18,6 @@ public class ResisterRepoTest {
     RegisterRepo registerRepo;
     @Test
     public void findByMemberId()throws Exception{
-        Optional<RegisterEntity> byMemberId = registerRepo.findByMemberId("11");
+        List<RegisterEntity> byMemberId = registerRepo.findByMemberId("11");
     }
 }
