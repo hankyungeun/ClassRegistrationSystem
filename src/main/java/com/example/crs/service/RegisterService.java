@@ -8,7 +8,6 @@ import com.example.crs.model.RegisterEntityPK;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.List;
 
@@ -31,6 +30,7 @@ public class RegisterService {
 
     @Transactional(readOnly = true)
     public List<Register> getRegisters(Member member) {
-        return registerMapper.fromRegisterEntityList(registerRepo.findByMemberId(member.getId()));
+        return registerMapper.fromRegisterEntityList((List<RegisterEntity>) registerRepo.findByMemberId(member.getId())
+                .orElseThrow(() -> new IllegalArgumentException("회원 정보가 없습니다. id=" + member.getId())));
     }
 }

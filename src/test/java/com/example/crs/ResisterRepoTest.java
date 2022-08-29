@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 @Transactional
@@ -17,9 +18,6 @@ public class ResisterRepoTest {
     RegisterRepo registerRepo;
     @Test
     public void findByMemberId()throws Exception{
-        List<RegisterEntity> byMemberId = registerRepo.findByMemberId("11");
-        System.out.println(byMemberId.size());
-
+        Optional<RegisterEntity> byMemberId = registerRepo.findByMemberId("11");
     }
-
 }
