@@ -3,50 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-<div class="container">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<header>
     <div th:if="${loginMember != null}">
-        <span>로그인 이름: </span>
         <span th:text="${loginMember.id}"></span>
+        <span>님 환영합니다! </span>
     </div>
+</header>
+<main>
+    <!-- 수강신청 검색 목록 -->
+    <section>
+        <div class="container">
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>교과목명</th>
+                        <th>학수번호</th>
+                        <th>이수구분</th>
+                        <th>분반</th>
+                        <th>학점</th>
+                        <th>담당교수</th>
+                        <th>수강인원</th>
+                        <th>제한인원</th>
+                        <th>강의실명</th>
+                        <th>강의시간</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="class : ${classes}">
+                        <div class="row">
+                            <td th:text="${class.id}"></td>
+                            <td th:text="${class.className}"></td>
+                            <td th:text="${class.division}"></td>
+                            <td th:text="${class.distribution}"></td>
+                            <td th:text="${class.credit}"></td>
+                            <td th:text="${class.professor}"></td>
+                            <td th:text="${class.curStudent}"></td>
+                            <td th:text="${class.maxStudent}"></td>
+                            <td th:text="${class.lectureRoom}"></td>
+                            <td th:text="${class.time}"></td>
 
-    <div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>교과목명</th>
-                <th>학수번호</th>
-                <th>이수구분</th>
-                <th>분반</th>
-                <th>학점</th>
-                <th>담당교수</th>
-                <th>수강인원</th>
-                <th>제한인원</th>
-                <th>강의실명</th>
-                <th>강의시간</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="class : ${classes}">
-                <td th:text="${class.id}"></td>
-                <td th:text="${class.className}"></td>
-                <td th:text="${class.division}"></td>
-                <td th:text="${class.distribution}"></td>
-                <td th:text="${class.credit}"></td>
-                <td th:text="${class.professor}"></td>
-                <td th:text="${class.curStudent}"></td>
-                <td th:text="${class.maxStudent}"></td>
-                <td th:text="${class.lectureRoom}"></td>
-                <td th:text="${class.time}"></td>
+                        </div>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- /container -->
+    </section>
+    <!--장바구니, 프로필, 유의사항 -->
+    <section>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to
+                        additional
+                        content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-primary mb-3 text-white"><a href="#" class="btn btn-primary">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${class.id}">#</h5>
+                    <div class="card-text" width="50px;">
+                        <span th:text="${class.className}"/>교과목명</span><br/>
+                        <span th:text="${class.className}"/>교과목명</span><br/>
+                        <span th:text="${class.className}"/>교과목명</span><br/>
+                        <span th:text="${class.className}"/>교과목명</span><br/>
 
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div> <!-- /container -->
+                    </div>
+                    Go somewhere
+                </div>
+            </a>
+            </div>
+        </div>
+    </section>
+</main>
+
 </body>
 </html>
