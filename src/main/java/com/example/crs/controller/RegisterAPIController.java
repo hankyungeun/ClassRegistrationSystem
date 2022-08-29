@@ -4,6 +4,7 @@ import com.example.crs.dto.Register;
 import com.example.crs.model.Member;
 import com.example.crs.model.RegisterEntityPK;
 import com.example.crs.service.ClassService;
+import com.example.crs.service.MemberService;
 import com.example.crs.service.RegisterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.List;
 public class RegisterAPIController {
     private final RegisterService registerService;
     private final ClassService classService;
+    private final MemberService memberService;
 
     @GetMapping
     public List<Register> getRegisters(@SessionAttribute(name = "loginMember") Member member) {
@@ -27,13 +29,17 @@ public class RegisterAPIController {
     public void add(@RequestBody Register register) {
         registerService.addRegister(register);
         classService.updateCurStudent(register.getClassEntity().getId(), -1);
+        memberService.updateNowCredits(register.getMemberEntity().getId(), register.getClassEntity().getCredit());
     }
 
     @DeleteMapping
-    public void del(@RequestBody String memberId, @RequestBody String classId, Model model) {
-        registerService.delRegister(new RegisterEntityPK(memberId, classId));
-        if (!classService.updateCurStudent(classId, 1)) {
-            model.addAttribute("error", 1);
+    public void del(@RequestBody Register register, Model model) {
+        registerService.delRegister(new RegisterEntityPK(register.getMemberEntity().getId(), register.getClassEntity().getId()));
+        if (!classService.updateCurStudent(register.getClassEntity().getId(), 1)) {
+            model.addAttribute("error1", 1);
+        }
+        if (!memberService.updateNowCredits(register.getMemberEntity().getId(), register.getClassEntity().getCredit())) {
+            model.addAttribute("error2", 1);
         }
     }
 }
