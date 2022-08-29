@@ -7,6 +7,7 @@
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
     <style>
+
         header {
             /*border: 1px solid red;*/
             height: 70px;
@@ -24,6 +25,69 @@
             height: 450px;
             background-color: rgba(122, 221, 235, 0.15);
         }
+
+        .subject-name{
+            font-weight: bold;
+            font-size: 25px;
+            text-decoration-line: underline;
+        }
+
+        .subject-number{
+            font-size: 16px;
+            font-weight: lighter;
+            text-align: left;
+            text-decoration-line: underline;
+        }
+
+        .class-division{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
+        .class-number{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
+        .subject-score{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
+        .class-professor{
+            font-size: 20px;
+            font-weight: lighter;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .student-number{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
+        .limit-student{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
+        .class-name{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
+        .lecture-time{
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: left;
+        }
+
 
     </style>
 
@@ -103,20 +167,20 @@
         </nav>
         <div class="container">
             <div class="col-sm-3">
-                <div class="card bg-primary mb-3 text-white"><a href="#" class="btn btn-primary">
+                <div class="card bg-primary mb-3 text-white"><a href="#" class="btn ">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${class.id}">#</h5>
                         <div class="card-text" width="50px;">
-                            <span th:text="${class.className}"/>교과목명</span><br/>
-                            <span th:text="${class.className}"/>학수번호</span><br/>
-                            <span th:text="${class.className}"/>이수구분</span><br/>
-                            <span th:text="${class.className}"/>분반</span><br/>
-                            <span th:text="${class.className}"/>학점</span><br/>
-                            <span th:text="${class.className}"/>담당교수</span><br/>
-                            <span th:text="${class.className}"/>수강인원</span><br/>
-                            <span th:text="${class.className}"/>제한인원</span><br/>
-                            <span th:text="${class.className}"/>강의실명</span><br/>
-                            <span th:text="${class.className}"/>강의시간</span><br/>
+                            <span th:text="${class.className}" class="subject-name"/>교과목 명</span><br/>
+                            <span th:text="${class.className}" class="subject-number"/>학수 번호</span><br/>
+                            <span th:text="${class.className}" class="class-division"/>이수 구분</span><br/>
+                            <span th:text="${class.className}" class="class-number"/>분반</span><br/>
+                            <span th:text="${class.className}" class="subject-score"/>학점</span><br/>
+                            <span th:text="${class.className}" class="class-professor"/>담당 교수</span><br/>
+                            <span th:text="${class.className}" class="student-number"/>수강 인원</span><br/>
+                            <span th:text="${class.className}" class="limit-student"/>제한 인원</span><br/>
+                            <span th:text="${class.className}" class="class-name"/>강의실 명</span><br/>
+                            <span th:text="${class.className}"  class="lecture-time"/>강의 시간</span><br/>
                         </div>
                     </div>
                 </a>
