@@ -12,12 +12,14 @@
             height: 70px;
             background-color: rgba(173, 185, 255, 0.26);
         }
-        section:nth-child(1){
+
+        section:nth-child(1) {
             /*border: 1px solid green;*/
             height: 450px;
             background-color: rgba(122, 180, 235, 0.15);
         }
-        section:nth-child(2){
+
+        section:nth-child(2) {
             /*border: 1px solid black;*/
             height: 450px;
             background-color: rgba(122, 221, 235, 0.15);
@@ -58,6 +60,9 @@
                         <th>강의시간</th>
                     </tr>
                     </thead>
+                </table>
+
+                <table class="table table-striped" style="overflow: scroll">
                     <tbody>
                     <tr th:each="class : ${classes}">
                         <div class="row">
@@ -71,8 +76,6 @@
                             <td th:text="${class.maxStudent}"></td>
                             <td th:text="${class.lectureRoom}"></td>
                             <td th:text="${class.time}"></td>
-
-
                         </div>
                     </tr>
                     </tbody>
@@ -82,31 +85,42 @@
     </section>
     <!--장바구니, 프로필, 신청완료 과목 -->
     <section>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to
-                        additional
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card bg-primary mb-3 text-white"><a href="#" class="btn btn-primary">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${class.id}">#</h5>
-                    <div class="card-text" width="50px;">
-                        <span th:text="${class.className}"/>교과목명</span><br/>
-                        <span th:text="${class.className}"/>교과목명</span><br/>
-                        <span th:text="${class.className}"/>교과목명</span><br/>
-                        <span th:text="${class.className}"/>교과목명</span><br/>
+        <nav class="navbar navbar-inverse">
+            <!-- Logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-th-target="#mainNavbar">
 
+                </button>
+            </div>
+            <!-- Menu Ites -->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="col-sm-3">
+                <div class="card bg-primary mb-3 text-white"><a href="#" class="btn btn-primary">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${class.id}">#</h5>
+                        <div class="card-text" width="50px;">
+                            <span th:text="${class.className}"/>교과목명</span><br/>
+                            <span th:text="${class.className}"/>학수번호</span><br/>
+                            <span th:text="${class.className}"/>이수구분</span><br/>
+                            <span th:text="${class.className}"/>분반</span><br/>
+                            <span th:text="${class.className}"/>학점</span><br/>
+                            <span th:text="${class.className}"/>담당교수</span><br/>
+                            <span th:text="${class.className}"/>수강인원</span><br/>
+                            <span th:text="${class.className}"/>제한인원</span><br/>
+                            <span th:text="${class.className}"/>강의실명</span><br/>
+                            <span th:text="${class.className}"/>강의시간</span><br/>
+                        </div>
                     </div>
-                    Go somewhere
+                </a>
                 </div>
-            </a>
             </div>
         </div>
     </section>
