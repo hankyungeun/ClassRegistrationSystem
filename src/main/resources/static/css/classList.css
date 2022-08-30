@@ -1,0 +1,165 @@
+header div {
+    text-decoration: black;
+
+}
+
+.modal {
+    overflow-y: auto;
+}
+
+.my-card {
+    background-color: red !important;
+}
+
+#text-list span {
+    display: block;
+    white-space: nowrap;
+}
+
+.spanlist {
+    float: left;
+    margin-left: 10px;
+}
+
+.aside1 {
+    margin-top: 20px;
+}
+
+header {
+    /*border: 1px solid red;*/
+    height: 85px;
+    background-color: rgba(173, 185, 255, 0.26);
+}
+
+section:nth-child(1) {
+    /*border: 1px solid green;*/
+    height: 450px;
+    background-color: rgba(122, 180, 235, 0.15);
+}
+
+section:nth-child(2) {
+    /*border: 1px solid black;*/
+    height: 450px;
+    background-color: rgba(122, 180, 235, 0.15);
+}
+
+/*사용자정보*/
+.normal{
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: left;
+    color: lightslategray;
+}
+
+.credits-now{
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: mediumslateblue;
+    color: navy;
+}
+
+/*장바구니 담긴 과목 텍스트 스타일 지정*/
+.type-1 {
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration-line: underline;
+    text-align: center;
+    color: ghostwhite;
+    text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+}
+
+.type-2 {
+    font-size: 16px;
+    font-weight: lighter;
+    font-style: italic;
+    text-align: right;
+    color: ghostwhite;
+    text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+}
+
+.type-3 {
+    font-size: 18px;
+    font-weight: lighter;
+    text-align: left;
+    color: ghostwhite;
+    text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+}
+
+.type-4 {
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    color: ghostwhite;
+    text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+}
+
+.type-5 {
+    font-size: 18px;
+    font-weight: lighter;
+    text-align: left;
+    color: ghostwhite;
+    text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+}
+
+.type-6 {
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: left;
+    color: #ffffff;
+    text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
+}
+#section-second div nav{
+    margin-left : 235px;
+}
+
+.bluebox {
+    border: #82cbff 2px solid;
+}
+
+.btn.btn-primary {
+    color: ghostwhite;
+    font-weight: bold;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
