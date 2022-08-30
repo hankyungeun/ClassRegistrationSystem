@@ -30,7 +30,6 @@ public class RegisterService {
 
     @Transactional(readOnly = true)
     public List<Register> getRegisters(Member member) {
-        return registerMapper.fromRegisterEntityList((List<RegisterEntity>) registerRepo.findByMemberId(member.getId())
-                .orElseThrow(() -> new IllegalArgumentException("회원 정보가 없습니다. id=" + member.getId())));
+        return registerMapper.fromRegisterEntityList(registerRepo.findByMemberId(member.getId()));
     }
 }
