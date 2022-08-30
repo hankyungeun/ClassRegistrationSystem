@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Embeddable
 @NoArgsConstructor
+@ToString
 public class RegisterEntityPK implements Serializable {
     @Column(name = "member_id")
     private String memberId;
