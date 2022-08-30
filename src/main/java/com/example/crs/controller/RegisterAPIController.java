@@ -38,7 +38,7 @@ public class RegisterAPIController {
         if (!classService.updateCurStudent(register.getClassEntity().getId(), 1)) {
             model.addAttribute("error1", 1);
         }
-        if (!memberService.updateNowCredits(register.getMemberEntity().getId(), register.getClassEntity().getCredit())) {
+        if (!memberService.updateNowCredits(register.getMemberEntity().getId(), -register.getClassEntity().getCredit())) {
             model.addAttribute("error2", 1);
         }
     }

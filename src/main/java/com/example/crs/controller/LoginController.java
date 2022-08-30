@@ -48,4 +48,11 @@ public class LoginController {
 
         return "redirect:/class";
     }
+
+    @GetMapping("/logout")      //세션날림
+    public String logout(HttpServletRequest request) {
+        request.getSession().removeAttribute(SessionConstants.LOGIN_MEMBER);
+
+        return "redirect:/";
+    }
 }
