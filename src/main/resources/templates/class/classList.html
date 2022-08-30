@@ -112,9 +112,18 @@
         .bluebox {
             border: dodgerblue 2px solid;
         }
-        .table { display:table; }
-        .table-row { display:table-row; }
-        .table-cell { display:table-cell; }
+
+        .table {
+            display: table;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+        }
 
     </style>
 
@@ -166,7 +175,7 @@
                 <div class="" style="overflow-y: scroll; height:23rem;">
                     <table class="table table-striped">
                         <tbody>
-                        <tr th:each="class : ${classes}">
+                        <tr th:each="class : ${classes}" onclick="sendAjaxPost()">
                             <div class="row">
                                 <td th:text="${class.id}"></td>
                                 <td th:text="${class.className}"></td>
@@ -178,6 +187,7 @@
                                 <td th:text="${class.maxStudent}"></td>
                                 <td th:text="${class.lectureRoom}"></td>
                                 <td th:text="${class.time}"></td>
+
                             </div>
                         </tr>
                         <tr>
@@ -292,23 +302,23 @@
                                         <span th:text="${class.className}"/>교과목 명</span><br/>
                                     </div>
                                     <div class="type-2">
-                                        <span th:text="${class.className}"/>학수 번호</span><br/>
+                                        <span th:text="${class.division}"/>학수 번호</span><br/>
                                     </div>
                                     <div class="type-3">
-                                        <span th:text="${class.className}"/>이수 구분</span><br/>
-                                        <span th:text="${class.className}"/>분반</span><br/>
-                                        <span th:text="${class.className}"/>학점</span><br/>
+                                        <span th:text="${class.distribution}"/>이수 구분</span><br/>
+                                        <span th:text="${class.division}"/>분반</span><br/>
+                                        <span th:text="${class.credit}"/>학점</span><br/>
                                     </div>
                                     <div class="type-4">
-                                        <span th:text="${class.className}"/>담당 교수</span><br/>
+                                        <span th:text="${class.professor}"/>담당 교수</span><br/>
                                     </div>
                                     <div class="type-5">
-                                        <span th:text="${class.className}"/>수강 인원</span><br/>
-                                        <span th:text="${class.className}"/>제한 인원</span><br/>
+                                        <span th:text="${class.curStudent}"/>수강 인원</span><br/>
+                                        <span th:text="${class.maxStudent}"/>제한 인원</span><br/>
                                     </div>
                                     <div class="type-6">
-                                        <span th:text="${class.className}"/>강의실 명</span><br/>
-                                        <span th:text="${class.className}"/>강의 시간</span><br/>
+                                        <span th:text="${class.lectureRoom}"/>강의실 명</span><br/>
+                                        <span th:text="${class.time}"/>강의 시간</span><br/>
                                     </div>
                                 </div>
                             </div>
@@ -321,8 +331,14 @@
 </main>
 
 <script type="text/javascript">
-    $('table').on('click', 'tr', function() {
-        window.location = '/register';
+    jQuery($ => {
+        $('table').on('click', 'tr', e => {
+            $.post('/register', {
+                index: $(e.target).index()
+            }, function (response) {
+                console.log(response); // response is the data sent back from the server
+            });
+        });
     });
 </script>
 
