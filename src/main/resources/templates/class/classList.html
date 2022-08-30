@@ -112,6 +112,7 @@
         .bluebox {
             border: dodgerblue 2px solid;
         }
+
         .table { display:table; }
         .table-row { display:table-row; }
         .table-cell { display:table-cell; }
@@ -124,7 +125,7 @@
 
 
 <header>
-
+    <button class="button" onclick="location.href='/logout'" style="vertical-align:middle; float:right;"><span>로그아웃</span></button>
 </header>
 <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -168,8 +169,8 @@
                         <tbody>
                         <tr th:each="class : ${classes}">
                             <div class="row">
-                                <td th:text="${class.id}"></td>
                                 <td th:text="${class.className}"></td>
+                                <td th:text="${class.id}"></td>
                                 <td th:text="${class.division}"></td>
                                 <td th:text="${class.distribution}"></td>
                                 <td th:text="${class.credit}"></td>
@@ -180,56 +181,11 @@
                                 <td th:text="${class.time}"></td>
                             </div>
                         </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
-                        <tr>
-                            <td>이것은 td입니다.</td>
-                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                </tbody>
-                </table>
-            </div>
-        </div><!-- /container -->
+            </div><!-- /container -->
+        </div>
         <hr/>
     </section>
     <!--장바구니, 프로필, 신청완료 과목 -->
@@ -260,12 +216,10 @@
                          style="min-width: 13rem;">
                         <div class="card bg-light mb-3" style="max-width: 18rem;">
                             <div class="card-body">
-                                <tr th:each="class : ${classes}">
-                                    <h5 class="card-title" th:text="${class.id}">#</h5>
-                                </tr>
                                 <div class="card-text" width="50px;" id="text-list">
-                                    <span>학번 : </span>
-                                    <span th:text="${session.loginMember.id}"></span>
+                                    <div class="normal">
+                                    <span >학번 : </span>
+                                        <span th:text="${session.loginMember.id}"></span>
                                     <span>이름: </span>
                                     <span th:text="${session.loginMember.name}"></span>
                                     <span>학과: </span>
@@ -278,6 +232,11 @@
                                     <span th:text="${session.loginMember.minCredits}"></span>
                                     <span>현재수강신청학점: </span>
                                     <span th:text="${session.loginMember.minCredits}"></span>
+                                    </div>
+                                    <div class="credits-now">
+                                        <span>현재수강신청학점: </span>
+                                        <span th:text="${session.loginMember.nowCredits}"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -324,16 +283,13 @@
     </section>
 </main>
 
+
 <script type="text/javascript">
-    jQuery($ => {
-        $('table').on('click', 'tr', e => {
-            $.post('/register', {
-                index: $(e.target).index()
-            }, function (response) {
-                console.log(response); // response is the data sent back from the server
-            });
-        });
+    $('table').on('click', 'tr', function() {
+        window.location = '/register';
     });
+
+
 </script>
 
 </body>
