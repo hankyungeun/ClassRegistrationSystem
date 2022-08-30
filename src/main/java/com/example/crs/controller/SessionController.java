@@ -15,14 +15,19 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class SessionController {
 
-    @GetMapping("/")
-    public String home(@SessionAttribute(name = SessionConstants.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
-        if(loginMember == null){
-            return "redirect:/login";
-        }
-        model.addAttribute("loginMember", loginMember);
+//    @GetMapping("/")
+//    public String home(@SessionAttribute(name = SessionConstants.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
+//        if(loginMember == null){
+//            return "redirect:/login";
+//        }
+//        model.addAttribute("loginMember", loginMember);
+//
+////        System.out.println(loginMember);
+//        return "redirect:/class";
+//    }
 
-//        System.out.println(loginMember);
+    @GetMapping("/")
+    public String home() {
         return "redirect:/class";
     }
 }
