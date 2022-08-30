@@ -11,13 +11,14 @@
 </head>
 <body>
 <header>
-    <button class="button" onclick="location.href='/logout'" style="vertical-align:middle; float:right;"><span>로그아웃</span></button>
+    <button class="button" onclick="location.href='/logout'" style="vertical-align:middle; float:right;">
+        <span>로그아웃</span></button>
 </header>
 <main>
     <!-- 유의사항/ 수강신청 검색 목록 -->
     <section>
         <div class="container">
-            <div>
+            <div class="" style="overflow-y: scroll; height:23rem;">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -33,27 +34,26 @@
                         <th>강의시간</th>
                     </tr>
                     </thead>
+                    <tbody>
+                    <tr th:each="class : ${classes}">
+                        <div class="row">
+                            <td th:text="${class.className}"></td>
+                            <td th:text="${class.id}"></td>
+                            <td th:text="${class.division}"></td>
+                            <td th:text="${class.distribution}"></td>
+                            <td th:text="${class.credit}"></td>
+                            <td th:text="${class.professor}"></td>
+                            <td th:text="${class.curStudent}"></td>
+                            <td th:text="${class.maxStudent}"></td>
+                            <td th:text="${class.lectureRoom}"></td>
+                            <td th:text="${class.time}"></td>
+                            <td>
+                                <button th:onclick="postTodo([[${class}]])">신청</button>
+                            </td>
+                        </div>
+                    </tr>
+                    </tbody>
                 </table>
-                <div class="" style="overflow-y: scroll; height:23rem;">
-                    <table class="table table-striped">
-                        <tbody>
-                        <tr th:each="class : ${classes}">
-                            <div class="row">
-                                <td th:text="${class.className}"></td>
-                                <td th:text="${class.id}"></td>
-                                <td th:text="${class.division}"></td>
-                                <td th:text="${class.distribution}"></td>
-                                <td th:text="${class.credit}"></td>
-                                <td th:text="${class.professor}"></td>
-                                <td th:text="${class.curStudent}"></td>
-                                <td th:text="${class.maxStudent}"></td>
-                                <td th:text="${class.lectureRoom}"></td>
-                                <td th:text="${class.time}"></td>
-                            </div>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div><!-- /container -->
         </div>
         <hr/>
@@ -76,11 +76,10 @@
                                 </h5>
                             </div>
                             <div class="modal-body" align="center">
-
+                                내용
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">확인</button>
-                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">취소</button>
+                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">확인</button>
                             </div>
                         </div>
                     </div>
@@ -105,20 +104,20 @@
                             <div class="card-body">
                                 <div class="card-text" width="50px;" id="text-list">
                                     <div class="normal">
-                                    <span >학번 : </span>
+                                        <span>학번 : </span>
                                         <span th:text="${session.loginMember.id}"></span>
-                                    <span>이름: </span>
-                                    <span th:text="${session.loginMember.name}"></span>
-                                    <span>학과: </span>
-                                    <span th:text="${session.loginMember.department}"></span>
-                                    <span>학년: </span>
-                                    <span th:text="${session.loginMember.grade}"></span>
-                                    <span>최소수강신청학점: </span>
-                                    <span th:text="${session.loginMember.maxCredits}"></span>
-                                    <span>최대수강신청학점: </span>
-                                    <span th:text="${session.loginMember.minCredits}"></span>
-                                    <span>현재수강신청학점: </span>
-                                    <span th:text="${session.loginMember.minCredits}"></span>
+                                        <span>이름: </span>
+                                        <span th:text="${session.loginMember.name}"></span>
+                                        <span>학과: </span>
+                                        <span th:text="${session.loginMember.department}"></span>
+                                        <span>학년: </span>
+                                        <span th:text="${session.loginMember.grade}"></span>
+                                        <span>최소수강신청학점: </span>
+                                        <span th:text="${session.loginMember.maxCredits}"></span>
+                                        <span>최대수강신청학점: </span>
+                                        <span th:text="${session.loginMember.minCredits}"></span>
+                                        <span>현재수강신청학점: </span>
+                                        <span th:text="${session.loginMember.minCredits}"></span>
                                     </div>
                                     <div class="credits-now">
                                         <span>현재수강신청학점: </span>
@@ -169,21 +168,15 @@
         </div>
     </section>
 </main>
-
-<script type="text/javascript">
-    $('table').on('click', 'tr', function() {
-        window.location = '/register';
-    });
-</script>
-
 <script>
-	$('#testBtn').click(function(e){
-		e.preventDefault();
-		$('#testModal').modal("show");
-	});
-
-
+    // ajax로 포스트 돌리는것.
+    function postTodo(classJson) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', 'http://localhost:8080/register');
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        console.log(JSON.stringify(classJson))
+        xhr.send(JSON.stringify(classJson));
+    }
 </script>
-
 </body>
 </html>

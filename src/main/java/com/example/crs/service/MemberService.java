@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -20,5 +22,10 @@ public class MemberService {
         } else {
             return false;
         }
+    }
+
+    @Transactional
+    public Member getMember(String memberId) {
+        return loginRepo.findById(memberId).get();
     }
 }
