@@ -112,18 +112,9 @@
         .bluebox {
             border: dodgerblue 2px solid;
         }
-
-        .table {
-            display: table;
-        }
-
-        .table-row {
-            display: table-row;
-        }
-
-        .table-cell {
-            display: table-cell;
-        }
+        .table { display:table; }
+        .table-row { display:table-row; }
+        .table-cell { display:table-cell; }
 
     </style>
 
@@ -175,7 +166,7 @@
                 <div class="" style="overflow-y: scroll; height:23rem;">
                     <table class="table table-striped">
                         <tbody>
-                        <tr th:each="class : ${classes}" onclick="sendAjaxPost()">
+                        <tr th:each="class : ${classes}">
                             <div class="row">
                                 <td th:text="${class.id}"></td>
                                 <td th:text="${class.className}"></td>
@@ -187,7 +178,6 @@
                                 <td th:text="${class.maxStudent}"></td>
                                 <td th:text="${class.lectureRoom}"></td>
                                 <td th:text="${class.time}"></td>
-
                             </div>
                         </tr>
                         <tr>
@@ -270,7 +260,9 @@
                          style="min-width: 13rem;">
                         <div class="card bg-light mb-3" style="max-width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title" th:text="${class.id}">#</h5>
+                                <tr th:each="class : ${classes}">
+                                    <h5 class="card-title" th:text="${class.id}">#</h5>
+                                </tr>
                                 <div class="card-text" width="50px;" id="text-list">
                                     <span>학번 : </span>
                                     <span th:text="${session.loginMember.id}"></span>
@@ -296,31 +288,33 @@
                     <div class="card bg-primary mb-3 text-white">
                         <a href="#" class="btn">
                             <div class="card-body">
-                                <h5 class="card-title type-2" th:text="${class.id}">class.id</h5>
-                                <div class="card-text" width="50px;">
-                                    <div class="type-1">
-                                        <span th:text="${class.className}"/>교과목 명</span><br/>
+                                <tr th:each="class : ${classes}">
+                                    <h5 class="card-title type-2" th:text="${class.id}">class.id</h5>
+                                    <div class="card-text" width="50px;">
+                                        <div class="type-1">
+                                            <span th:text="${class.className}"/>교과목 명</span><br/>
+                                        </div>
+                                        <div class="type-2">
+                                            <span th:text="${class.className}"/>학수 번호</span><br/>
+                                        </div>
+                                        <div class="type-3">
+                                            <span th:text="${class.className}"/>이수 구분</span><br/>
+                                            <span th:text="${class.className}"/>분반</span><br/>
+                                            <span th:text="${class.className}"/>학점</span><br/>
+                                        </div>
+                                        <div class="type-4">
+                                            <span th:text="${class.className}"/>담당 교수</span><br/>
+                                        </div>
+                                        <div class="type-5">
+                                            <span th:text="${class.className}"/>수강 인원</span><br/>
+                                            <span th:text="${class.className}"/>제한 인원</span><br/>
+                                        </div>
+                                        <div class="type-6">
+                                            <span th:text="${class.className}"/>강의실 명</span><br/>
+                                            <span th:text="${class.className}"/>강의 시간</span><br/>
+                                        </div>
                                     </div>
-                                    <div class="type-2">
-                                        <span th:text="${class.division}"/>학수 번호</span><br/>
-                                    </div>
-                                    <div class="type-3">
-                                        <span th:text="${class.distribution}"/>이수 구분</span><br/>
-                                        <span th:text="${class.division}"/>분반</span><br/>
-                                        <span th:text="${class.credit}"/>학점</span><br/>
-                                    </div>
-                                    <div class="type-4">
-                                        <span th:text="${class.professor}"/>담당 교수</span><br/>
-                                    </div>
-                                    <div class="type-5">
-                                        <span th:text="${class.curStudent}"/>수강 인원</span><br/>
-                                        <span th:text="${class.maxStudent}"/>제한 인원</span><br/>
-                                    </div>
-                                    <div class="type-6">
-                                        <span th:text="${class.lectureRoom}"/>강의실 명</span><br/>
-                                        <span th:text="${class.time}"/>강의 시간</span><br/>
-                                    </div>
-                                </div>
+                                </tr>
                             </div>
                         </a>
                     </div>
