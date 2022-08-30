@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface LoginRepo extends JpaRepository<Member, String>, JpaSpecificationExecutor<Member> {
-    Optional <Member> findById(String id);
+    Optional<Member> findById(String id);
 }

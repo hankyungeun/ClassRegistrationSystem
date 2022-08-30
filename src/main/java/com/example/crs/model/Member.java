@@ -3,6 +3,7 @@ package com.example.crs.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,6 +44,11 @@ public class Member {
     @Column(name = "min_credits")
     //최소신청학점
     private int minCredits;
+
+    @Column(name = "now_credits")
+    @ColumnDefault("0")
+    // 현재신청학점
+    private int nowCredits;
 
     @OneToMany(mappedBy = "classEntity")
     Set<RegisterEntity> registerEntitySet;
