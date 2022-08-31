@@ -201,7 +201,7 @@
                 <tr th:each="register : ${registers}">
                     <aside class="col-sm-2 spanlist" id="aside-second">
                         <div class="card bg-primary mb-3 text-white">
-                            <a onclick="deleteTodo([[${register.classEntity}]])" class="btn">
+                            <a th:onclick="deleteTodo([[${register.classEntity}]])" class="btn">
                                 <div class="card-body">
                                     <h5 class="card-title type-2" th:text="${register.classEntity.id}">class.id</h5>
                                     <div class="card-text" width="50px;">
@@ -246,18 +246,18 @@
         console.log(JSON.stringify(classJson));
         xhr.onload = function(){
             alert('수강신청되었습니다.');
-         };
-         xhr.send(JSON.stringify(classJson));
+        };
+        xhr.send(JSON.stringify(classJson));
     }
 
-    function deleteTodo(class){
+    function deleteTodo(classJson){
         let xhr = new XMLHttpRequest();
         xhr.open('DELETE','http://localhost:8080/register');
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");\
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onload = function(){
             alert('수강취소되었습니다.');
-         };
-        xhr.send(JSON.stringify(class));
+        };
+        xhr.send(JSON.stringify(classJson));
     }
 
 </script>
