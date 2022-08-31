@@ -8,6 +8,8 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
 @Data
@@ -47,6 +49,9 @@ public class Member {
     @ColumnDefault("0")
     // 현재신청학점
     private int nowCredits;
+
+    @OneToMany(mappedBy = "classEntity")
+    Set<RegisterEntity> registerEntitySet;
 
     public Member(String id) {
         this.id = id;

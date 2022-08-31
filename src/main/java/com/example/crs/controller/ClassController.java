@@ -1,6 +1,7 @@
 package com.example.crs.controller;
 
 import com.example.crs.dao.ClassRepo;
+import com.example.crs.dao.RegisterRepo;
 import com.example.crs.model.Class;
 import com.example.crs.model.Member;
 import com.example.crs.search.SearchBuilder;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class ClassController {
     private final ClassService classService;
     private final ClassRepo classRepo;
+    private final RegisterRepo registerRepo;
 
     @GetMapping("/class")
 //    public String showClass(Model model) {
@@ -35,6 +37,7 @@ public class ClassController {
             }
 
             model.addAttribute("classes", classRepo.findAll(searchBuilder.build()));
+            model.addAttribute("registers", (registerRepo.findByMemberId(member.getId())));
             return "class/classList";
         } else {
             return "redirect:/login";

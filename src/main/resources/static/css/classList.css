@@ -26,20 +26,51 @@ header div {
 
 header {
     /*border: 1px solid red;*/
-    height: 70px;
+    height: 85px;
     background-color: rgba(173, 185, 255, 0.26);
 }
 
 section:nth-child(1) {
     /*border: 1px solid green;*/
     height: 450px;
-    background-color: rgba(122, 180, 235, 0.15);
+    background-color: rgba(122, 180, 235, 0.1);
 }
 
 section:nth-child(2) {
     /*border: 1px solid black;*/
     height: 450px;
-    background-color: rgba(122, 180, 235, 0.15);
+    background-color: rgba(122, 180, 235, 0.1);
+}
+
+/*사용자정보*/
+.normal {
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: left;
+    color: lightslategray;
+}
+
+.credits-now {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: mediumslateblue;
+    color: navy;
+}
+#card-mytext > span {
+    display: inline;
+}
+#card-mytext > span:nth-child(2n+1) {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    color: navy;
+}
+#card-mytext > span:nth-child(2n)::after {
+    content:"";
+    display: block;
 }
 
 /*장바구니 담긴 과목 텍스트 스타일 지정*/
@@ -48,7 +79,7 @@ section:nth-child(2) {
     font-size: 25px;
     text-decoration-line: underline;
     text-align: center;
-    color: #ffffff;
+    color: ghostwhite;
     text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
 }
 
@@ -57,7 +88,7 @@ section:nth-child(2) {
     font-weight: lighter;
     font-style: italic;
     text-align: right;
-    color: #ffffff;
+    color: ghostwhite;
     text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
 }
 
@@ -65,7 +96,7 @@ section:nth-child(2) {
     font-size: 18px;
     font-weight: lighter;
     text-align: left;
-    color: #ffffff;
+    color: ghostwhite;
     text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
 }
 
@@ -73,7 +104,7 @@ section:nth-child(2) {
     font-size: 20px;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color: ghostwhite;
     text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
 }
 
@@ -81,7 +112,7 @@ section:nth-child(2) {
     font-size: 18px;
     font-weight: lighter;
     text-align: left;
-    color: #ffffff;
+    color: ghostwhite;
     text-shadow: 1px 1px rgba(0, 0, 83, 0.67);
 }
 
@@ -97,30 +128,117 @@ section:nth-child(2) {
     margin-left: 235px;
 }
 
-
 .bluebox {
-    border: dodgerblue 2px solid;
+    border: #82cbff 2px solid;
 }
 
-.table {
-    display: table;
+.btn.btn-primary {
+    color: ghostwhite;
+    font-weight: bold;
 }
 
-.table-row {
-    display: table-row;
+/*로그아웃 버튼*/
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #ff4452;
+    border: none;
+    color: ghostwhite;
+    text-align: center;
+    font-size: 18px;
+    text-shadow: 1px 1px #f61026;
+    padding: 15px;
+    width: 130px;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 13px;
 }
 
-.table-cell {
-    display: table-cell;
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.btn-default {
+    background-color: #3486ff;
+    color: ghostwhite;
+    /*text-shadow: 1px 1px rgba(0, 0, 0, 0.5);*/
+}
+
+/*유의사항 스타일*/
+.modal-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: tomato;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.h6-style {
+    font-weight: bold;
+    font-size: 20px;
+    color: coral;
+}
+
+.important {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff7685;
+}
+
+.example {
+    font-size: 15px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+.less-important {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/*박스 시각화*/
+.tbox {
+    border: red 2px solid;
 }
 
 header {
-    height: 75px;
-    padding: 1rem;
-    color: white;
-    background: teal;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        height: 75px;
+        padding: 1rem;
+        color: white;
+        background: rgba(63, 48, 220, 0.34);
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .add-style{
+        background-color: rgba(141, 140, 137, 0.65);
+        color: ghostwhite;
+        font-weight: bold;
+        font-size: 15px;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+        padding: 3px 4px 3px 3px;
+        border: none;
+    }
