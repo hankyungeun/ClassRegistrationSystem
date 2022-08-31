@@ -1,15 +1,7 @@
 package com.example.crs.controller;
 
-import com.example.crs.SessionConstants;
-import com.example.crs.model.Member;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 
 
 @Controller

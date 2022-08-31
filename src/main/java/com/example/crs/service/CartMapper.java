@@ -2,9 +2,6 @@ package com.example.crs.service;
 
 import com.example.crs.dto.Cart;
 import com.example.crs.model.CartEntity;
-import com.example.crs.model.CartEntityPK;
-import com.example.crs.model.Class;
-import com.example.crs.model.Member;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
